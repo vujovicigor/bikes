@@ -1,0 +1,214 @@
+{% extends "base.twig" %}
+{% set slug = _GET['1'] %}
+{% set Car = fetch("Cars", {id:slug})[0] %}
+{% block description %}{{Car.Marka}} {{Car.Model}} Prodaja {% endblock %}
+{% block title %}Prodajem {{Car.Marka}} {{Car.Model}}{% endblock %}
+{% block image %}img/{{Car.Galerija_[0].slug}}{% endblock %}
+
+{% block content %}
+
+	<div class="page-heading wow fadeIn" data-wow-duration="0.5s">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="heading-content-bg wow fadeIn" data-wow-delay="0.75s" data-wow-duration="1s">
+						<div class="row">
+							<div class="heading-content col-md-12">
+								<p><a href="index.html">Home</a> / <em> Prodaja</em> / <em> Detalji</em></p>
+								<h2>{{Car.Marka}}  <em>{{Car.Model}}</em></h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="recent-car single-car wow fadeIn" data-wow-delay="0.5s" data-wow-duration="1s">
+		<div class="container">
+			<div class="recent-car-content">
+				<div class="row">
+					<div class="col-md-6">
+						<div id="single-car" class="slider-pro">
+							<div class="sp-slides">
+
+                {% for image in Car.Galerija_ %}
+								<div class="sp-slide">
+                  <img class="sp-image" src="img/{{image.slug}}" alt="{{image.label}}">
+                </div>
+                {% endfor %}
+
+							</div>
+
+							<div class="sp-thumbnails">
+                {% for image in Car.Galerija_ %}
+                  <img class="sp-thumbnail" src="img/{{image.slug}}" alt="{{image.label}}">
+                {% endfor %}
+							</div>
+					  </div>
+
+            <div class="more-details" style="margin-top:2rem">
+              <div class="item wow fadeInUp" data-wow-duration="0.5s">
+                <div class="info-list">
+                  <ul>
+                  {% set lines = Car.Features|split("\n") %}
+                  {% for line in lines if line %}
+                    <li><i class="fa fa-check-square"></i><span>{{line}}</span></li>
+                  {% endfor %}                
+                  </ul>
+                </div>
+              </div>
+					  </div>
+
+
+					</div>
+					<div class="col-md-6">
+						<div class="car-details">
+							<h4>{{Car.Marka}} {{Car.Model}}</h4>
+							<span>{{ Car.Cena|number_format(0, ',', ' ') }} &euro;</span>
+							<p style="white-space: pre-wrap;">{{Car.Opis}}</p>
+							<div class="container">
+								<div class="row">
+									<ul class="car-info col-md-6">
+										<li title="Godina proizvodnje"><i class="flaticon flaticon-calendar"></i><p>{{Car.Novo=='true'?'Novo':Car.Godiste }}</p></li>
+										<li title="Maksimalna brzina"><i class="flaticon flaticon-speed"></i><p>{{ Car.MaxSpeed }} km/h</p></li>
+										<li title="Kilometraža"><i class="flaticon flaticon-road"></i><p>{{ Car.Kilometraza|number_format(0, ',', ' ') }} km</p></li>
+{#										<li><i class="flaticon flaticon-fuel"></i><p>{{ Car.KW }} W</p></li> #}
+									</ul>
+									<ul class="car-info col-md-6">
+										<li title="Boja"><i class="flaticon flaticon-art"></i><p>{{ Car.Boja }}</p></li>
+										<li title="Menjač"><i class="flaticon flaticon-shift"></i><p>{{ Car.Menjac }}</p></li>
+{#										<li><i class="flaticon flaticon-car"></i><p>{{ Car.Vrata }} vrata</p></li> #}
+										<li title="Snaga motora"><i class="flaticon flaticon-motor"></i><p>{{ Car.KW|number_format(0, ',', ' ') }} W</p></li>
+									</ul>
+								</div>
+							</div>
+              <!--
+							<div class="similar-info">
+								<div class="primary-button">
+									<a href="single_car.html#">Add Offer <i class="fa fa-dollar"></i></a>
+								</div>
+							</div>
+              -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<section>
+		<div class="more-details">
+			<div class="container">
+				<div class="row">
+        <!--
+					<div class="col-md-4">
+						<div class="item wow fadeInUp" data-wow-duration="0.5s">
+							<div class="sep-section-heading">
+								<h2>Detaljan <em>Opis</em></h2>
+							</div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati accusamus a iure nulla, sed non ex nobis eius esse distinctio imps sunt quia sint quis quisquam odio repellat.<br><br> <em>Eos non odit, corporis adipisci reprehenderit commodi sequi molestias blanditiis tenetur harum natus!</em><br><br>Illum quae, corrupti a ducimus voluptate velit praesentium dolorum earum unde nostrum.</p>
+						</div>
+					</div>
+          -->
+          <!--
+					<div class="col-md-6">
+						<div class="item wow fadeInUp" data-wow-duration="0.5s">
+							<div class="sep-section-heading">
+								<h2>Ostale <em>Karakteristike</em></h2>
+							</div>
+							<div class="info-list">
+								<ul>
+                {% set lines = Car.Features|split("\n") %}
+                {% for line in lines if line %}
+									<li><i class="fa fa-check-square"></i><span>{{line}}</span></li>
+                {% endfor %}                
+								</ul>
+							</div>
+						</div>
+					</div>
+-->
+					<div class="col-12 wow fadeInUp" data-wow-duration="0.75s">
+						<div class="item">
+							<div class="sep-section-heading">
+								<h2>Kontakt <em>Informacije</em></h2>
+							</div>
+							<p>Moguća je proba ovog i svih ostalih raspoloživih elektrobicikli kod naše radionice na Zvezdari.
+                <br>Proizvodnja novih električnih bicikli.
+                <br>
+                Ugradnja elektro kompleta na Vaše bicikle.
+              </p>
+							<div class="contact-info">
+								<div class="row">
+									<div class="phone col-md-12 col-sm-6 col-xs-6">
+                    <a href="tel:+1 123 489-5748">
+										  <i class="fa fa-phone"></i><span>+1 123 489-5748</span>
+                    </a>
+									</div>
+									<div class="mail col-md-12 col-sm-6 col-xs-6">
+                    <a href="mailto:youremail@gmail.com">
+										  <i class="fa fa-envelope"></i><span>youremail@gmail.com</span>
+                    </a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+		</div>
+	</section>
+<!--
+	<section>
+		<div class="recent-car similar-car wow fadeIn" data-wow-duration="1s">
+			<div class="container">
+				<div class="recent-car-content">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="section-heading">
+								<div class="icon">
+									<i class="fa fa-car"></i>
+								</div>
+								<div class="text-content">
+									<h2>Ostala bicikla</h2>
+									<span>iz naše ponude</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="owl-similar" class="owl-carousel owl-theme">
+            {% set Cars = fetch("Cars") %}
+            {% for Car_o in Cars if Car_o.id != Car.id%}
+              <div class="item car-item">
+                <div class="thumb-content">
+                  <div class="car-banner">
+                    <a href="bike/{{Car_o.id}}">Prodaja</a>
+                  </div>
+                  <a href="bike/{{Car_o.id}}"><img src="img/{{Car_o.Galerija_[0].slug}}" alt="{{Car_o.Model}}"></a>
+                </div>
+                <div class="down-content">
+                  <a href="bike/{{Car_o.id}}"><h4>{{Car_o.Marka}} {{Car_o.Model}}</h4></a>
+                  <span>{{ Car_o.Cena|number_format(0) }} eur</span>
+                </div>
+              </div>
+            {% endfor %}     
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intense-images/1.0.7/intense.min.js" integrity="sha256-c1DfMnV0oimiD84xju+rAY27IGkBAG5DrcOYQHlZrCc=" crossorigin="anonymous"></script>
+<script>
+window.onload = function() {
+  // Intensify all images with the 'intense' classname.
+  var elements = document.querySelectorAll( '.sp-image' );
+  Intense( elements );
+}
+</script>
+{% endblock %}

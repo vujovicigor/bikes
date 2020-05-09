@@ -1,0 +1,23 @@
+{% set Oglas = fetch("Oglas") %}
+<h2>Oglas</h2>
+<table border=1 style="width:100%">
+<tr>
+  <td>id</td>
+  <td>Naslov</td>
+  <td>Datum</td>
+  <td>Publish</td>
+  <td>Mapa</td>
+  <td>Text</td>
+</tr>
+{% for item in Oglas if item.Publish == 'true' %}
+<tr>
+  <td> {{item.id}} </td>
+  <td> {{item.Naslov}} </td>
+  <td> {{item.Datum}} </td>
+  <td> {{item.Publish}} </td>
+  <td> {{item.Mapa}} </td>
+  <td> {{item.Text|raw}} </td>
+</tr>
+{% endfor %}
+</table>
+</div>

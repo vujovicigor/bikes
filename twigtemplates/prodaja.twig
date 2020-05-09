@@ -1,0 +1,113 @@
+{% extends "base.twig" %}
+{% block description %}Prodaja bicikala{% endblock %}
+{% block title %}Prodaja bicikala{% endblock %}
+{% block content %}
+
+	<div class="page-heading wow fadeIn" data-wow-duration="0.5s">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="heading-content-bg wow fadeIn" data-wow-delay="0.75s" data-wow-duration="1s">
+						<div class="row">
+							<div class="heading-content col-md-12">
+								<p><a href="index">Home</a></p>
+								<h2>Prodaja <em>Bicikala</em></h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="on-grids wow fadeIn" data-wow-delay="0.5s" data-wow-duration="1s">
+		<div class="container">
+			<div class="recent-car-content">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+
+            {% set Cars = fetch("Cars") %}
+            {% for Car in Cars %}
+
+
+							<div class="col-md-6">
+								<div class="car-item">
+									<div class="thumb-content" style="--aspect-ratio: 1920/854">
+										<div class="car-banner" style="z-index: 2;">
+											<a href="bike/{{Car.id}}/{{Car.Marka}}">{{Car.Novo=='true'?'Novo':'Koriščeno'}}</a>
+										</div>
+										<div class="thumb-inner" style="overflow: hidden">
+											<a href="bike/{{Car.id}}/{{Car.Marka}}" class="stretched-link">
+                        <img src="img/{{Car.Galerija_[0].slug}}" alt="{{Car.Model}}" class="slikavozila">
+                      </a>
+										</div>
+									</div>
+									<div class="down-content" >
+										<a href="bike/{{Car.id}}/{{Car.Marka}}" class="stretched-link"><h4>{{Car.Marka}} {{Car.Model}}</h4></a>
+										<span>{{ Car.Cena|number_format(0) }} eur</span>
+										<div class="line-dec"></div>
+										<div style="white-space: pre-wrap; height:9rem; overflow:hidden; position:relative">{{Car.Opis}}
+                      <div style="position: absolute; top: 6rem; left: 0; width: 100%; height: 3rem; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)">
+                      </div>                    
+                    </div>
+										<ul class="car-info" >
+											<li><div class="item"><i class="flaticon flaticon-calendar"></i><p>{{ Car.Godiste }}</p></div></li>
+											<li><div class="item"><i class="flaticon flaticon-speed"></i><p>{{ Car.MaxSpeed }} km/h</p></div></li>
+											<li><div class="item"><i class="flaticon flaticon-road"></i><p>{{ Car.Kilometraza }} km</p></div></li>
+											<li><div class="item"><i class="flaticon flaticon-fuel"></i><p>{{ Car.KW }} Watt</p></div></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+              {% endfor %}
+              <!--
+							<div class="col-md-12">
+								<div class="page-numbers">
+									<div class="pagination-content">
+										<ul>
+											<li class="active"><a href="car_grid_no_sidebar.html#">1</a></li>
+											<li><a href="car_grid_no_sidebar.html#">2</a></li>
+											<li><a href="car_grid_no_sidebar.html#">3</a></li>
+											<li><a href="car_grid_no_sidebar.html#">4</a></li>
+											<li><a href="car_grid_no_sidebar.html#"><i class="fa fa-angle-double-right"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+              -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<style>
+.aspectratio {
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding-top: calc(100% / (var(--aspect-ratio)));
+ /* padding-top: calc(100% / (var(--aspect-ratio)));*/
+}
+
+.aspectratio > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: flex-end; */
+}
+
+.slikavozila:hover{
+  transform: scale(1.06);
+  filter: brightness(1.1)
+}
+</style>
+{% endblock %}

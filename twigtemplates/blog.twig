@@ -1,0 +1,103 @@
+{% extends "base.twig" %}
+{% set selected_category_slug = _GET['1'] %}
+{% set PostCategory = fetch("PostCategory", {id:selected_category_slug})[0] %}
+{% set selected_category_id = selected_category_slug?PostCategory.id:null  %}
+
+{% block description %}
+{% if selected_category_id%}Korisne informacije, Kategorija: {{PostCategory.label}}{% else %}Korisne Informacije{% endif %}
+{% endblock %}
+{% block title %}
+{% if selected_category_id%}{{PostCategory.label}}{% else %}Korisne Informacije{% endif %}
+{% endblock %}
+
+{% block content %}
+
+	<div class="page-heading wow fadeIn" data-wow-duration="0.5s">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="heading-content-bg wow fadeIn" data-wow-delay="0.25s" data-wow-duration="1s">
+						<div class="row">
+							<div class="heading-content col-md-12">
+              {% if selected_category_id%}
+								<p><a href="index">Home</a> / <em> <a href="blog">Korisne informacije</a></em> </p>
+								<h2>Kategorija: <em>{{PostCategory.label}}</em></h2>
+              {% else %}
+								<p><a href="index">Homepage</a></p>
+								<h2>Korisne <em>Informacije</em></h2>
+              {% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="blog-page">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="blog-grid-post">
+						<div class="row">
+
+            {% set Posts = fetch("Post") %}
+            {% for Post in Posts if not(selected_category_id) or selected_category_id in Post.Category_ %}
+							<div class="col-md-6 col-xl-4">
+								<div class="item">
+							 		<div class="thumb-content">
+										<div class="date-post">
+											<a href="post/{{Post.Slug}}">{{Post.Date|date("m.d.Y")}}</a>
+										</div>
+										<div class="thumb-inner">
+											<a href="post/{{Post.Slug}}"><img src="img/{{Post.Image}}" alt="{{Post.Title}}"></a>
+										</div>
+									</div>
+									<div class="down-content">
+										<a href="post/{{Post.Slug}}"><h4>{{Post.Title}}</h4></a>
+										<ul>
+                    <!--
+											<li><span><em>Posted by:</em><a href="blog_grid_no_sidebar.html#">Admin</a></span></li>
+                      
+											<li><span><em>Posted on:</em>{{Post.Date}}</span></li>
+                      -->
+											<li><span><em>Kategorije:</em>
+
+                      {% for c in Post.Category_ %}
+                        {% set PostCategoryObj = fetch("PostCategory", {id:c})[0] %}
+                        <a href="blog/{{PostCategoryObj.Slug}}">{{PostCategoryObj.label}}</a>{{loop.last?' ':', '}}
+                      {% endfor %}   
+                      </span></li>
+										</ul>
+										<p>{{Post.Short}}</p>
+										<div class="text-button">
+											<a href="post/{{Post.Slug}}">Nastavak <i class="fa fa-arrow-right"></i></a>
+										</div>							
+									</div>
+							  	</div>
+							</div>
+            {% endfor %}
+              {# paginacija
+							<div class="col-md-12">
+								<div class="page-numbers">
+									<div class="pagination-content">
+										<ul>
+											<li class="active"><a href="blog_grid_no_sidebar.html#">1</a></li>
+											<li><a href="blog_grid_no_sidebar.html#">2</a></li>
+											<li><a href="blog_grid_no_sidebar.html#">3</a></li>
+											<li><a href="blog_grid_no_sidebar.html#">4</a></li>
+											<li><a href="blog_grid_no_sidebar.html#"><i class="fa fa-angle-double-right"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+              #}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}
