@@ -1,8 +1,8 @@
 FROM php:7.2-apache 
 MAINTAINER vujovichigor@gmail.com 
-ENV APACHE_DOCUMENT_ROOT /workspace/bikes
-RUN sed -ri -e 's!/var/www/html!/workspace/bikes!g' /etc/apache2/sites-available/*.conf
-RUN sed -ri -e 's!/var/www/!/workspace/bikes!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+ENV APACHE_DOCUMENT_ROOT /workspaces/bikes
+RUN sed -ri -e 's!/var/www/html!/workspaces/bikes!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/!/workspaces/bikes!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
 #COPY php.ini /usr/local/etc/php/ # extension=mysql.so
 
