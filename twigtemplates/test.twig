@@ -5,7 +5,7 @@
 {% set ra = _SERVER['REMOTE_ADDR'] %}
 {% set ip = fetch2("https://api.country.is/" ~ ra.country) %}
 
-{{ip}}
+{{ip.country}}
 
 
 {% set Oglas = fetch2("https://daysapi.com/api/v2/public_countries") %}
