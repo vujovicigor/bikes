@@ -4,15 +4,16 @@
 
 *{{slug}}*
 
-{% set Oglas = fetch2("https://daysapi.com/api/v2/public_holidays/AL/2024") %}
+{% set Oglas = fetch2("https://daysapi.com/api/v2/public_holidays/" ~ slug ~ "/2024") %}
 <h2>Counties</h2>
 <div style="overflow:auto; height:10rem">
   <table class="table table-striped">
   <thead style="position: sticky; top: 0;">
     <tr>
-      <th scope="col">localname</th>
-      <th scope="col">name</th>
-      <th scope="col">observed</th>
+      <th scope="col">Localname</th>
+      <th scope="col">Name</th>
+      <th scope="col">Observed</th>
+      <th scope="col">Day</th>
     </tr>
   </thead>
   <tbody>
@@ -21,7 +22,7 @@
     <td> {{item.localname}} </td>
     <td> {{item.name}} </td>
     <td> {{item.observed}} </td>
-
+    <td> {{item.weekday.date.name}} </td>
   </tr>
   {% endfor %}
   </tbody>
