@@ -5,16 +5,20 @@
 <h2>Counties</h2>
 <div>
   <table class="table table-striped" style="width:100%">
-  <tr>
-    <td>id</td>
-    <td>Naslov</td>
-  </tr>
+  <thead>
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Country</th>
+    </tr>
+  </thead>
+  <tbody>
   {% for item in Oglas %}
   <tr>
     <td> {{item.code}} </td>
     <td> {{item.name}} </td>
   </tr>
   {% endfor %}
+  </tbody>
   </table>
 </div>
 {% endblock %}
