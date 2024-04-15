@@ -2,8 +2,6 @@
 {% block content %}
 {% set slug = _GET['1'] %}
 
-*{{slug}}*
-
 {% set Oglas = fetch2("https://daysapi.com/api/v2/public_holidays/" ~ slug ~ "/2024") %}
 <h2>Counties</h2>
 <div style="overflow:auto; height:100%">
