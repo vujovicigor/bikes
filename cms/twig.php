@@ -53,6 +53,17 @@ $f = new Twig_SimpleFunction('fetch', function ($name, $params=array()) {
 });
 $twig->addFunction($f);
 
+$f2 = new Twig_SimpleFunction('fetch2', function ($name, $params=array()) {
+    $json = file_get_contents($name);
+    $obj = json_decode($json);
+    return $obj;
+});
+$twig->addFunction($f2);
+
+
+
+
+
 $h = new Twig_SimpleFunction('header', function ($header, $replace = TRUE) {
   return header ( $header, $replace ); // add $http_response_code param if needed
 });
