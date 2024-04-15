@@ -1,7 +1,7 @@
 {% extends "base-days.twig" %}
 {% block content %}
 {% set code = _GET['1'] %}
-{% set countryname = _GET['1'] %}
+{% set countryname = _GET['2'] %}
 
 {% set Oglas = fetch2("https://daysapi.com/api/v2/public_holidays/" ~ code ~ "/2024") %}
 <h2>{{countryname}}</h2>
