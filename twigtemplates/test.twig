@@ -1,6 +1,13 @@
 {% extends "base-days.twig" %}
 {% block content %}
 
+{{_SERVER['REMOTE_ADDR']}}
+{{set ra = _SERVER['REMOTE_ADDR']}}
+{% set ip = fetch2("https://api.country.is/"~{{ra.country}}) %}
+
+{{ip}}
+
+
 {% set Oglas = fetch2("https://daysapi.com/api/v2/public_countries") %}
 <h2>Counties</h2>
 <div style="overflow:auto; height:100%">
