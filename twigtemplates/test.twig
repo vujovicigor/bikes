@@ -3,9 +3,9 @@
 
 {% set Oglas = fetch2("https://daysapi.com/api/v2/public_countries") %}
 <h2>Counties</h2>
-<div>
+<div style="overflow:auto; height:10rem">
   <table class="table table-striped" style="width:100%">
-  <thead>
+  <thead style="position: sticky; top: 0;">
     <tr>
       <th scope="col">Code</th>
       <th scope="col">Country</th>
