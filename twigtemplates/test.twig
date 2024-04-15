@@ -1,8 +1,8 @@
 {% extends "base-days.twig" %}
 {% block content %}
 
-{{_SERVER['HTTP_CLIENT_IP']}}
-{% set ra = _SERVER['HTTP_CLIENT_IP'] %}
+{{_SERVER['HTTP_X_FORWARDED_FOR']}}
+{% set ra = _SERVER['HTTP_X_FORWARDED_FOR'] %}
 {% set ip = fetch2("https://api.country.is/" ~ ra.country) %}
 
 {{ip.country}}
