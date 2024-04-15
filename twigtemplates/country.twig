@@ -1,9 +1,10 @@
 {% extends "base-days.twig" %}
 {% block content %}
-{% set slug = _GET['1'] %}
+{% set code = _GET['1'] %}
+{% set countryname = _GET['1'] %}
 
-{% set Oglas = fetch2("https://daysapi.com/api/v2/public_holidays/" ~ slug ~ "/2024") %}
-<h2>Counties</h2>
+{% set Oglas = fetch2("https://daysapi.com/api/v2/public_holidays/" ~ code ~ "/2024") %}
+<h2>{{countryname}}</h2>
 <div style="overflow:auto; height:100%">
   <table class="table table-striped">
   <thead style="position: sticky; top: 0;">

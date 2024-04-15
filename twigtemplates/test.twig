@@ -22,7 +22,7 @@
   {% for item in Oglas %}
   <tr>
     <td> {{item.code}} </td>
-    <td> <a href="country/{{item.code}}">{{item.name}}</a> </td>
+    <td> <a href="country/{{item.code}}/{{item.name}}">{{item.name}}</a> </td>
   </tr>
   {% endfor %}
   </tbody>
