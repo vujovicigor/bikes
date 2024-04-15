@@ -1,4 +1,4 @@
-{% set Oglas = fetch("Oglas") %}
+{% set Oglas = fetch2("https://daysapi.com/api/v2/public_countries") %}
 <h2>Oglas</h2>
 <table border=1 style="width:100%">
 <tr>
@@ -11,8 +11,8 @@
 </tr>
 {% for item in Oglas if item.Publish == 'true' %}
 <tr>
-  <td> {{item.id}} </td>
-  <td> {{item.Naslov}} </td>
+  <td> {{item.code}} </td>
+  <td> {{item.name}} </td>
   <td> {{item.Datum}} </td>
   <td> {{item.Publish}} </td>
   <td> {{item.Mapa}} </td>
