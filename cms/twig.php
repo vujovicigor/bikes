@@ -55,8 +55,6 @@ $twig->addFunction($f);
 
 $f2 = new Twig_SimpleFunction('fetch2', function ($name, $params=array()) {
     $json = file_get_contents($name);
-    echo $name;
-    echo $json;
     $obj = json_decode($json);
     return $obj;
 });
