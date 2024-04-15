@@ -2,10 +2,10 @@
 {% block content %}
 
 {{_SERVER['HTTP_X_FORWARDED_FOR']}}
-{% set ra = _SERVER['HTTP_X_FORWARDED_FOR'] %}
-{% set ip = fetch2("https://api.country.is/" ~ ra.country) %}
+{% set ip = _SERVER['HTTP_X_FORWARDED_FOR'] %}
+{% set ipapi = fetch2("https://api.country.is/" ~ ip) %}
 
-{{ip.country}}
+{{ipapi.country}}
 
 
 {% set Oglas = fetch2("https://daysapi.com/api/v2/public_countries") %}
