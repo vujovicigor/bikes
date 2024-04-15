@@ -4,19 +4,11 @@
 <tr>
   <td>id</td>
   <td>Naslov</td>
-  <td>Datum</td>
-  <td>Publish</td>
-  <td>Mapa</td>
-  <td>Text</td>
 </tr>
 {% for item in Oglas %}
 <tr>
   <td> {{item.code}} </td>
   <td> {{item.name}} </td>
-  <td> {{item.Datum}} </td>
-  <td> {{item.Publish}} </td>
-  <td> {{item.Mapa}} </td>
-  <td> {{item.Text|raw}} </td>
 </tr>
 {% endfor %}
 </table>
