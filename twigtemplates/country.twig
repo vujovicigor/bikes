@@ -4,21 +4,24 @@
 
 *{{slug}}*
 
-{% set Oglas = fetch2("https://daysapi.com/api/v2/public_countries") %}
+{% set Oglas = fetch2("https://daysapi.com/api/v2/public_holidays/AL/2024") %}
 <h2>Counties</h2>
 <div style="overflow:auto; height:10rem">
   <table class="table table-striped">
   <thead style="position: sticky; top: 0;">
     <tr>
-      <th scope="col">Code</th>
-      <th scope="col">Country</th>
+      <th scope="col">localname</th>
+      <th scope="col">name</th>
+      <th scope="col">observed</th>
     </tr>
   </thead>
   <tbody>
   {% for item in Oglas %}
   <tr>
-    <td> {{item.code}} </td>
-    <td> <a href="country/{{item.code}}">{{item.name}}</a> </td>
+    <td> {{item.localname}} </td>
+    <td> {{item.name}} </td>
+    <td> {{item.observed}} </td>
+
   </tr>
   {% endfor %}
   </tbody>
