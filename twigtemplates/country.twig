@@ -26,4 +26,13 @@
   </tbody>
   </table>
 </div>
+<script>
+function updateDates() {
+    let list = document.querySelectorAll('.date')
+    for ( i = 0; i < list.length; i++ ) {
+        list[i].innerHTML = new Intl.DateTimeFormat().format(new Date(list[i].innerHTML.substr(0,11)))
+    }  
+}
+updateDates();
+</script>
 {% endblock %}
