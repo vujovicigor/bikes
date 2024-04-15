@@ -2,7 +2,7 @@
 {% block content %}
 
 {{_SERVER['REMOTE_ADDR']}}
-{{set ra = _SERVER['REMOTE_ADDR']}}
+{% set ra = _SERVER['REMOTE_ADDR'] %}
 {% set ip = fetch2("https://api.country.is/"~{{ra.country}}) %}
 
 {{ip}}
