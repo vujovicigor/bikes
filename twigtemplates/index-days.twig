@@ -15,24 +15,25 @@
   search: '',
   show_item(el) {
     console.log(el); window.el = el;
-    return this.search === '' || el.text.includes(this.search)
+    return this.search === '' || el.text.toLowerCase().includes(this.search)
   }
 }" >
 
         <div id="users">
-            <input class="search" placeholder="Search" type="search" x-model="search" />
+            <input class="search input" placeholder="Search" type="search" x-model="search" />
               <div>
-                    <p>Search Input: <span x-text="search"></span></p>
-                </div>
+                <p>Search Input: <span x-text="search"></span></p>
+            </div>
+
+
+
 
             <ul class="list list-group">
-                <a x-show="show_item($el)" href="" class="name list-group-item" >Link</a>
-                <!--
-                <li class="name list-group-item"><p x-show="show_item($el)" class="name">Guybrush Threepwood</p></li>
-                <li class="name list-group-item"><p x-show="show_item($el)" class="name">Guybrush Threepwood</p></li>
-                <li class="name list-group-item"><p x-show="show_item($el)" class="name">Guybrush Threepwood</p></li>
-                <li x-show="show_item($el)" class="name list-group-item">And a fifth one</li>
-                -->
+                {% for item in countries %}
+                    <a x-show="show_item($el)" href="/index-days/{{item.code}}/{{item.name}}" class="list-group-item" >
+                    {{item.name}}
+                    </a>
+                {% endfor %}
             </ul>
 
         </div>
