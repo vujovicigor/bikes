@@ -6,7 +6,7 @@
 
 {% set flagurl = '/flags/' ~ countrycodelower ~ '.svg' %}
 
-{% set Oglas = fetch2("https://daysapi.com/api/v2/public_holidays/" ~ code ~ "/2024") %}
+{% set Oglas = fetch2("https://daysapi.com/api/v2/public_holidays/?public=true" ~ code ~ "/2024") %}
 <h2>{{countryname}} <img style="width:3rem" src="{{flagurl}}"></h2>
 
 <div style="overflow:auto; height:100%">
