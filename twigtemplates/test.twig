@@ -16,6 +16,7 @@
     <tr>
       <th scope="col">Code</th>
       <th scope="col">Country</th>
+      <th scope="col">Flag</th>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +24,7 @@
   <tr>
     <td> {{item.code}} </td>
     <td> <a href="country/{{item.code}}/{{item.name}}">{{item.name}}</a> </td>
+    <td> <img src="/flags/{{item.code | lower}}.svg" </td>
   </tr>
   {% endfor %}
   </tbody>
