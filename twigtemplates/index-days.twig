@@ -5,13 +5,11 @@
 *{{code}}*
 
 {% if code=='' %}
-UIF
     {% set ipapi = fetch2("https://api.country.is/" ~ ip) %}
     {% set code = ipapi.country %}
 {% endif %}
 
-
-{% set Oglas = fetch2("https://daysapi.com/api/v2/public_countries") %}
+{% set countries = fetch2("https://daysapi.com/api/v2/public_countries") %}
 <div class="row" style="overflow: auto;">
     <div class="col" style="overflow: auto; height: 100%;">
         <h2>Counties</h2>
@@ -25,7 +23,7 @@ UIF
             </tr>
         </thead>
         <tbody>
-        {% for item in Oglas %}
+        {% for item in countries %}
         <tr>
             <td> <img src="/flags/{{item.code | lower}}.svg" loading="lazy"> </td>
             <td> {{item.code}} </td>
@@ -63,7 +61,7 @@ UIF
         <tr>
             <td> {{item.localname}} </td>
             <td> {{item.name}} </td>
-            <td class="date"> {{item.observed}} </td>
+            <td class="date"> {{item.observed | slice(0, 10)}} </td>
             <td> {{item.weekday.date.name}} </td>
         </tr>
         {% endfor %}
