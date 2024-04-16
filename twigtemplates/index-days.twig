@@ -1,9 +1,12 @@
 {% extends "base-days.twig" %}
 {% block content %}
 {% set ip = _SERVER['HTTP_X_FORWARDED_FOR'] %}
-{% set ipapi = fetch2("https://api.country.is/" ~ ip) %}
+{% set code = _GET['1'] %}
 
-{{ipapi.country}}
+{% if code is not null%}
+    {% set ipapi = fetch2("https://api.country.is/" ~ ip) %}
+    {% set code = ipapi.country %}
+{% endif %}
 
 
 {% set Oglas = fetch2("https://daysapi.com/api/v2/public_countries") %}
