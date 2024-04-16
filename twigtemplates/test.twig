@@ -22,7 +22,7 @@
   <tbody>
   {% for item in Oglas %}
   <tr>
-    <td> <img src="/flags/{{item.code | lower}}.svg" style="height: 1.4rem;"> </td>
+    <td> <img src="/flags/{{item.code | lower}}.svg" style="height: 1.4rem;" loading="lazy"> </td>
     <td> {{item.code}} </td>
     <td> <a href="country/{{item.code}}/{{item.name}}">{{item.name}}</a> </td>
   </tr>
