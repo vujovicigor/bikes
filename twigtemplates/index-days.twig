@@ -11,20 +11,25 @@
 
 {% set countries = fetch2("https://daysapi.com/api/v2/public_countries") %}
 <div class="row" style="overflow: auto;">
-    <div class="col" style="overflow: auto; height: 100%;">
+    <div class="col" style="overflow: auto; height: 100%;" x-data="{
+  search: '',
+  show_item(el) {
+    return this.search === '' || el.textContent.includes(this.search)
+  }
+}" >
 
         <div id="users">
-            <input class="search" placeholder="Search" />
-            <button class="sort btn" data-sort="name">
-                Sort by name
-            </button>
+            <input class="search" placeholder="Search" type="search" x-model="search" />
+              <div>
+                    <p>Search Input: <span x-text="search"></span></p>
+                </div>
 
             <ul class="list list-group">
-                <a href="" class="name list-group-item" >Link</a>
-                <li class="name list-group-item"><p class="name">Guybrush Threepwood</p></li>
-                <li class="name list-group-item"><p class="name">Guybrush Threepwood</p></li>
-                <li class="name list-group-item"><p class="name">Guybrush Threepwood</p></li>
-                <li class="name list-group-item">And a fifth one</li>
+                <a  x-show="show_item($el)" href="" class="name list-group-item" >Link</a>
+                <li class="name list-group-item"><p x-show="show_item($el)" class="name">Guybrush Threepwood</p></li>
+                <li class="name list-group-item"><p x-show="show_item($el)" class="name">Guybrush Threepwood</p></li>
+                <li class="name list-group-item"><p x-show="show_item($el)" class="name">Guybrush Threepwood</p></li>
+                <li x-show="show_item($el)" class="name list-group-item">And a fifth one</li>
             </ul>
 
         </div>
@@ -91,12 +96,5 @@
     </div>
 
 </div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
-<script>
-var options = {
-  valueNames: [ 'name' ]
-};
-
-var userList = new List('users', options);
-</script>
+<script src="//unpkg.com/alpinejs" defer></script>
 {% endblock %}
