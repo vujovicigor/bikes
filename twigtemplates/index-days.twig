@@ -7,8 +7,8 @@
 
 
 {% set Oglas = fetch2("https://daysapi.com/api/v2/public_countries") %}
-<div class="row">
-    <div class="col">
+<div class="row" style="overflow: auto;">
+    <div class="col" style="overflow: auto; height: 100%;">
         <h2>Counties</h2>
         <div style="overflow:auto; height:100%">
         <table class="table table-striped">
@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <div class="col">
+    <div class="col" style="overflow: auto; height: 100%;">
 
         {% set code = _GET['1'] %}
         {% set countryname = _GET['2'] %}
