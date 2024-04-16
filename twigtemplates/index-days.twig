@@ -2,8 +2,10 @@
 {% block content %}
 {% set ip = _SERVER['HTTP_X_FORWARDED_FOR'] %}
 {% set code = _GET['1'] %}
+*{{code}}*
 
-{% if code is not null%}
+{% if code is not null %}
+UIF
     {% set ipapi = fetch2("https://api.country.is/" ~ ip) %}
     {% set code = ipapi.country %}
 {% endif %}
