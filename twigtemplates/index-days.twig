@@ -12,27 +12,57 @@
 {% set countries = fetch2("https://daysapi.com/api/v2/public_countries") %}
 <div class="row" style="overflow: auto;">
     <div class="col" style="overflow: auto; height: 100%;">
+
+        <div id="users">
+        <input class="search" placeholder="Search" />
+        <button class="sort" data-sort="name">
+            Sort by name
+        </button>
+
+        <ul class="list">
+            <li>
+            <h3 class="name">Jonny Stromberg</h3>
+            <p class="born">1986</p>
+            </li>
+            <li>
+            <h3 class="name">Jonas Arnklint</h3>
+            <p class="born">1985</p>
+            </li>
+            <li>
+            <h3 class="name">Martina Elm</h3>
+            <p class="born">1986</p>
+            </li>
+            <li>
+            <h3 class="name">Gustaf Lindqvist</h3>
+            <p class="born">1983</p>
+            </li>
+        </ul>
+
+        </div>
+
+    {#
         <h2>Counties</h2>
         <div style="overflow:auto; height:100%">
-        <table class="table table-striped">
-        <thead style="position: sticky; top: 0;">
+            <table class="table table-striped">
+            <thead style="position: sticky; top: 0;">
+                <tr>
+                <th scope="col" style="width: 3rem;">Flag</th>
+                <th scope="col">Code</th>
+                <th scope="col">Country</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in countries %}
             <tr>
-            <th scope="col" style="width: 3rem;">Flag</th>
-            <th scope="col">Code</th>
-            <th scope="col">Country</th>
+                <td> <img src="/flags/{{item.code | lower}}.svg" loading="lazy"> </td>
+                <td> {{item.code}} </td>
+                <td> <a href="/index-days/{{item.code}}/{{item.name}}">{{item.name}}</a> </td>
             </tr>
-        </thead>
-        <tbody>
-        {% for item in countries %}
-        <tr>
-            <td> <img src="/flags/{{item.code | lower}}.svg" loading="lazy"> </td>
-            <td> {{item.code}} </td>
-            <td> <a href="/index-days/{{item.code}}/{{item.name}}">{{item.name}}</a> </td>
-        </tr>
-        {% endfor %}
-        </tbody>
-        </table>
+            {% endfor %}
+            </tbody>
+            </table>
         </div>
+    #}
     </div>
 
     <div class="col" style="overflow: auto; height: 100%;">
@@ -72,4 +102,11 @@
     </div>
 
 </div>
+<script>
+var options = {
+  valueNames: [ 'name', 'born' ]
+};
+
+var userList = new List('users', options);
+</script>
 {% endblock %}
