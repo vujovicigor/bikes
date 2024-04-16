@@ -14,29 +14,20 @@
     <div class="col" style="overflow: auto; height: 100%;">
 
         <div id="users">
-        <input class="search" placeholder="Search" />
-        <button class="sort" data-sort="name">
-            Sort by name
-        </button>
+            <input class="search" placeholder="Search" />
+            <button class="sort" data-sort="name">
+                Sort by name
+            </button>
 
-        <ul class="list">
-            <li>
-            <h3 class="name">Jonny Stromberg</h3>
-            <p class="born">1986</p>
-            </li>
-            <li>
-            <h3 class="name">Jonas Arnklint</h3>
-            <p class="born">1985</p>
-            </li>
-            <li>
-            <h3 class="name">Martina Elm</h3>
-            <p class="born">1986</p>
-            </li>
-            <li>
-            <h3 class="name">Gustaf Lindqvist</h3>
-            <p class="born">1983</p>
-            </li>
-        </ul>
+            <div class="list list-group">
+            <button type="button" class="name list-group-item list-group-item-action active" aria-current="true">
+                The current button
+            </button>
+            <button type="button" class="name list-group-item list-group-item-action">A second item</button>
+            <button type="button" class="name list-group-item list-group-item-action">A third button item</button>
+            <button type="button" class="name list-group-item list-group-item-action">A fourth button item</button>
+            <button type="button" class="name list-group-item list-group-item-action" disabled>A disabled button item</button>
+            </div>
 
         </div>
 
@@ -105,7 +96,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
 <script>
 var options = {
-  valueNames: [ 'name', 'born' ]
+  valueNames: [ 'name' ]
 };
 
 var userList = new List('users', options);
