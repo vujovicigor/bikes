@@ -2,10 +2,13 @@
 {% block content %}
 {% set code = _GET['1'] %}
 {% set countryname = _GET['2'] %}
+{% set countrynamelower = countryname | lower %}
+
+{% set flagurl = '/flags/' ~ countrynamelower ~ '.svg' %}
 
 {% set Oglas = fetch2("https://daysapi.com/api/v2/public_holidays/" ~ code ~ "/2024") %}
-<h2>{{countryname}}</h2>
-<img src="flags/xx">
+<h2>{{countryname}} <img style="width:3rem" src="{{flagurl}}"></h2>
+
 <div style="overflow:auto; height:100%">
   <table class="table table-striped">
   <thead style="position: sticky; top: 0;">
