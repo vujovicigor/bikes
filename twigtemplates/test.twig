@@ -14,7 +14,7 @@
   <table class="table table-striped">
   <thead style="position: sticky; top: 0;">
     <tr>
-      <th scope="col">Flag</th>
+      <th scope="col" style="width: 3rem;">Flag</th>
       <th scope="col">Code</th>
       <th scope="col">Country</th>
     </tr>
@@ -22,7 +22,7 @@
   <tbody>
   {% for item in Oglas %}
   <tr>
-    <td> <img src="/flags/{{item.code | lower}}.svg" style="height: 1.4rem;" loading="lazy"> </td>
+    <td> <img src="/flags/{{item.code | lower}}.svg" loading="lazy"> </td>
     <td> {{item.code}} </td>
     <td> <a href="country/{{item.code}}/{{item.name}}">{{item.name}}</a> </td>
   </tr>
