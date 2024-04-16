@@ -4,7 +4,7 @@
 {% set code = _GET['1'] %}
 *{{code}}*
 
-{% if code is not null %}
+{% if code=='' %}
 UIF
     {% set ipapi = fetch2("https://api.country.is/" ~ ip) %}
     {% set code = ipapi.country %}
