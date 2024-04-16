@@ -14,6 +14,7 @@
     <div class="col" style="overflow: auto; height: 100%;" x-data="{
   search: '',
   show_item(el) {
+    console.log(el)
     return this.search === '' || el.textContent.includes(this.search)
   }
 }" >
@@ -25,7 +26,7 @@
                 </div>
 
             <ul class="list list-group">
-                <a  x-show="show_item($el)" href="" class="name list-group-item" >Link</a>
+                <a x-show="show_item($el)" href="" class="name list-group-item" >Link</a>
                 <li class="name list-group-item"><p x-show="show_item($el)" class="name">Guybrush Threepwood</p></li>
                 <li class="name list-group-item"><p x-show="show_item($el)" class="name">Guybrush Threepwood</p></li>
                 <li class="name list-group-item"><p x-show="show_item($el)" class="name">Guybrush Threepwood</p></li>
