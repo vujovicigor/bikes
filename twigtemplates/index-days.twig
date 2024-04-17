@@ -29,7 +29,7 @@
 
             <ul class="list list-group">
                 {% for item in countries %}
-                    <a x-show="show_item($el)" x-transition href="/index-days/{{item.code}}/{{item.name}}" class="list-group-item" >
+                    <a x-show="show_item($el)" x-transition.duration.500ms x-transition.scale href="/index-days/{{item.code}}/{{item.name}}" class="list-group-item" >
                     {{item.name}}
                     </a>
                 {% endfor %}
