@@ -14,8 +14,7 @@
     <div class="col-sm-4" style="overflow: auto; height: 100%;" x-data="{
   search: '',
   show_item(el) {
-    console.log('el.dataset', el.dataset);
-    return this.search === '' || el.text.toLowerCase().includes(this.search)
+    return this.search === '' || el.dataset.text.toLowerCase().includes(this.search.toLowerCase())
   }
 }" >
 
