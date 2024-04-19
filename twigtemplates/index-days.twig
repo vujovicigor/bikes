@@ -25,11 +25,7 @@
     <h5 class="card-title">Select country</h5>
     <p class="card-text">
                 <input  class="search form-control" placeholder="Search" type="search" x-model="search" />
-
-    </p>
-  </div>
-
-
+            
             <ul class="list list-group" style="overflow: auto;">
                 {% for item in countries %}
                     <a data-text="{{item.name}}" x-show="show_item($el)" x-transition.duration.100ms href="/index-days/{{item.code}}/{{item.name}}" class="list-group-item" >
@@ -38,6 +34,11 @@
                     </a>
                 {% endfor %}
             </ul>
+    </p>
+  </div>
+
+
+
 
         </div>
 
