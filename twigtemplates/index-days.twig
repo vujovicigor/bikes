@@ -14,6 +14,7 @@
     <div class="col-sm-4" style="overflow: auto; height: 100%;" x-data="{
   search: '',
   show_item(el) {
+    console.log('el.dataset', el.dataset);
     return this.search === '' || el.text.toLowerCase().includes(this.search)
   }
 }" >
@@ -27,7 +28,7 @@
 
             <ul class="list list-group">
                 {% for item in countries %}
-                    <a x-show="show_item($el)" x-transition.duration.500ms x-transition.scale href="/index-days/{{item.code}}/{{item.name}}" class="list-group-item" >
+                    <a data-text="{{item.name}}" x-show="show_item($el)" x-transition.duration.500ms x-transition.scale href="/index-days/{{item.code}}/{{item.name}}" class="list-group-item" >
                     {{item.name}}
                     </a>
                 {% endfor %}
