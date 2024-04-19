@@ -28,7 +28,7 @@
             <ul class="list list-group">
                 {% for item in countries %}
                     <a data-text="{{item.name}}" x-show="show_item($el)" x-transition.duration.500ms x-transition.scale href="/index-days/{{item.code}}/{{item.name}}" class="list-group-item" >
-                    <img src="/flags/{{item.code | lower}}.svg" loading="lazy"> 
+                    <img style="height: 1.4rem;" src="/flags/{{item.code | lower}}.svg" loading="lazy"> 
                     {{item.name}}
                     </a>
                 {% endfor %}
