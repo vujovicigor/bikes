@@ -36,7 +36,7 @@ m, weeks:{
     <tbody>
     
         {% for week in month.weeks %}
-       
+       -w-{{week|json_decode}}-e
         <tr>
             {% for day in week %}
             <td>{{day.d}}</td>
