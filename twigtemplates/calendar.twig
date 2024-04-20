@@ -37,7 +37,7 @@ m, weeks:{
         </tr>
     </thead>
     <tbody>
-    {{ month | json_encode(constant('JSON_PRETTY_PRINT')) }}
+    
         {% for week in month.weeks %}
         {{ week | json_encode(constant('JSON_PRETTY_PRINT')) }}
         <tr>
