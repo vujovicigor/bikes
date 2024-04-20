@@ -23,21 +23,23 @@ m, weeks:{
 #}
 {% for month in months %}
 
-    <table class="table">
+    <table class="table" title="{{month.m}}">
     <thead>
         <tr>
-        <th scope="col">Week#</th>
-        <th scope="col">Sunday</th>
-        <th scope="col">Monday</th>
-        <th scope="col">Tuesday</th>
-        <th scope="col">Wednesday</th>
-        <th scope="col">Thursday</th>
-        <th scope="col">Friday</th>
-        <th scope="col">Saturday</th>
+            <th scope="col">Week#</th>
+            <th scope="col">Sunday</th>
+            <th scope="col">Monday</th>
+            <th scope="col">Tuesday</th>
+            <th scope="col">Wednesday</th>
+            <th scope="col">Thursday</th>
+            <th scope="col">Friday</th>
+            <th scope="col">Saturday</th>
         </tr>
     </thead>
     <tbody>
+    {{ month | json_encode(constant('JSON_PRETTY_PRINT')) }}
         {% for week in month.weeks %}
+        {{ week | json_encode(constant('JSON_PRETTY_PRINT')) }}
         <tr>
             {% for day in week %}
             <td>{{day.d}}</td>
