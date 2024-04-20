@@ -1,6 +1,3 @@
-
-
-
 {% extends "base-days.twig" %}
 {% block content %}
 {% set code = 'de' %}
@@ -22,7 +19,7 @@ m, weeks:{
       },
 #}
 {% for month in months %}
-
+--{{month.m}}--
     <table class="table" title="{{month.m}}">
     <thead>
         <tr>
