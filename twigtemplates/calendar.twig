@@ -18,8 +18,8 @@ m, weeks:{
         "wn": 1
       },
 #}
+
 {% for month in months %}
---{{month.m}}--
     <table class="table" title="{{month.m}}">
     <thead>
         <tr>
@@ -36,10 +36,11 @@ m, weeks:{
     <tbody>
     
         {% for week in month.weeks %}
-        {{ week | json_encode(constant('JSON_PRETTY_PRINT')) }}
+       
         <tr>
             {% for day in week %}
             <td>{{day.d}}</td>
+            
             {% endfor %} 
         </tr>
         {% endfor %} 
