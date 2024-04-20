@@ -21,44 +21,46 @@ m, weeks:[
 
 #}
 
+<div class="row" style="overflow: auto;">    
+    {% for month in months %}
+        <div class="col-sm-4" >
+            <div class="card">
+                <div class="card-header">
+                    Featured {{month.m}}
+                </div>
+                <div class="card-body">
 
-{% for month in months %}
-    <div class="card">
-        <div class="card-header">
-            Featured {{month.m}}
-        </div>
-        <div class="card-body">
-
-            <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Week#</th>
-                    <th scope="col">M</th>
-                    <th scope="col">T</th>
-                    <th scope="col">W</th>
-                    <th scope="col">T</th>
-                    <th scope="col">F</th>
-                    <th scope="col">S</th>
-                    <th scope="col">S</th>
-                </tr>
-            </thead>
-            <tbody>
-            
-                {% for weekz in month.weeks %}
-            {#{weekz | json_encode(constant('JSON_PRETTY_PRINT'))}#}
-                <tr>
-                    <th>{{weekz.wn}}</th>
-                    {% for day in weekz.week %}
-                    <td>{{day.d}}</td>
+                    <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">W#</th>
+                            <th scope="col">M</th>
+                            <th scope="col">T</th>
+                            <th scope="col">W</th>
+                            <th scope="col">T</th>
+                            <th scope="col">F</th>
+                            <th scope="col">S</th>
+                            <th scope="col">S</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                     
-                    {% endfor %} 
-                </tr>
-                {% endfor %} 
+                        {% for weekz in month.weeks %}
+                    {#{weekz | json_encode(constant('JSON_PRETTY_PRINT'))}#}
+                        <tr>
+                            <th>{{weekz.wn}}</th>
+                            {% for day in weekz.week %}
+                            <td>{{day.d}}</td>
+                            
+                            {% endfor %} 
+                        </tr>
+                        {% endfor %} 
 
-            </tbody>
-            </table>
-        </div>
-    </div>            
-{% endfor %} 
-
+                    </tbody>
+                    </table>
+                </div>
+            </div>            
+        </div>     
+    {% endfor %} 
+</div> 
 {% endblock %}
