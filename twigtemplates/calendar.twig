@@ -35,10 +35,10 @@ m, weeks:{
     </thead>
     <tbody>
     
-        {% for week in month.weeks %}
-       -w-{{week|json_encode(constant('JSON_PRETTY_PRINT'))}}-e
+        {% for weekz in month.weeks %}
+       -w-{{weekz | json_encode(constant('JSON_PRETTY_PRINT'))}}-e
         <tr>
-            {% for day in week %}
+            {% for day in weekz %}
             <td>{{day.d}}</td>
             
             {% endfor %} 
