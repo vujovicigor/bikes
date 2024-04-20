@@ -40,7 +40,7 @@ m, weeks:[
         {% for weekz in month.weeks %}
        {#{weekz | json_encode(constant('JSON_PRETTY_PRINT'))}#}
         <tr>
-            <th>{{weekz.week.wn}}</th>
+            <th>{{weekz.wn}}</th>
             {% for day in weekz.week %}
             <td>{{day.d}}</td>
             
