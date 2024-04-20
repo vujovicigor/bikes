@@ -6,5 +6,58 @@
 {% set code = 'de' %}
 {% set months = fetch2("https://daysapi.com/api/v2/public_calendar" ) %}
 
-{{months[1].m}}
+{#
+m, weeks:{
+    "m": 1,
+    "wn": 1,
+    "week": [
+      {
+        "dt": "2024-01-01",
+        "d": 1,
+        "m": 1,
+        "y": 2024,
+        "dow_int": 0,
+        "dow_str": "Monday",
+        "wn": 1
+      },
+#}
+{% for month in months %}
+
+    <table class="table">
+    <thead>
+        <tr>
+        <th scope="col">Week#</th>
+        <th scope="col">Sunday</th>
+        <th scope="col">Monday</th>
+        <th scope="col">Tuesday</th>
+        <th scope="col">Wednesday</th>
+        <th scope="col">Thursday</th>
+        <th scope="col">Friday</th>
+        <th scope="col">Saturday</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for week in month.weeks %}
+        <tr>
+            {% for day in week %}
+            <td>{{day.d}}</td>
+            {% endfor %} 
+        </tr>
+        {% endfor %} 
+        <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+        </tr>
+        <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+        </tr>
+    </tbody>
+    </table>
+{% endfor %} 
+
 {% endblock %}
