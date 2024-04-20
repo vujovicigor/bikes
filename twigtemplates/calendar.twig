@@ -24,7 +24,7 @@ xs,sm,m,lg,xl
 <div class="row" style="overflow: auto;">    
     {% for month in months %}
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4" >
-            <div class="card mb-2">
+            <div class="card mb-3">
                 <div class="card-header">
                     {{month.m_str}}
                 </div>
@@ -32,7 +32,7 @@ xs,sm,m,lg,xl
 
                     <table class="table">
                     <thead>
-                        <tr class="table-success">
+                        <tr class="table-secondary">
                             <th scope="col">W#</th>
                             <th scope="col">M</th>
                             <th scope="col">T</th>
@@ -48,7 +48,7 @@ xs,sm,m,lg,xl
                         {% for weekz in month.weeks %}
                     {#{weekz | json_encode(constant('JSON_PRETTY_PRINT'))}#}
                         <tr>
-                            <th class="table-success">{{weekz.wn}}</th>
+                            <th class="table-secondary">{{weekz.wn}}</th>
                             {% for day in weekz.week %}
                             <td>{{day.d}}</td>
                             
