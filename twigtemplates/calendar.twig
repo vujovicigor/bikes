@@ -47,7 +47,7 @@ xs,sm,m,lg,xl
                         <tr>
                             <th class="table-secondary">{{weekz.wn}}</th>
                             {% for day in weekz.week %}
-                            <td class="{{day.public?'table-danger':''}}" title="{{day.name}}" data-bs-toggle="tooltip">{{day.d}}</td>
+                            <td class="{{day.public?'bg-danger text-white holiday':''}}" title="{{day.name}}" data-bs-toggle="tooltip">{{day.d}}</td>
                             
                             {% endfor %} 
                         </tr>
@@ -61,8 +61,8 @@ xs,sm,m,lg,xl
     {% endfor %} 
 </div> 
 <style>
-td {
-    border: 1px solid transparent;
+holiday {
+    border-radius:50% 50%;
 }
 </style>
 {% endblock %}
