@@ -25,11 +25,8 @@ xs,sm,m,lg,xl
     {% for month in months %}
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4" >
             <div class="card mb-3">
-                <div class="card-header">
-                    {{month.m_str}}
-                </div>
                 <div class="card-body">
-
+                    <h5 class="card-title">{{month.m_str}}</h5>
                     <table class="table table-borderless table-sm">
                     <thead>
                         <tr class="table-secondary text-muted">
