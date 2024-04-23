@@ -47,7 +47,7 @@ xs,sm,m,lg,xl
                         <tr>
                             <th class="table-secondary">{{weekz.wn}}</th>
                             {% for day in weekz.week %}
-                            <td class="{{day.public?'bg-danger text-white holiday':''}}" title="{{day.name}}" data-bs-toggle="tooltip">{{day.d}}</td>
+                            <td class="{{day.public?'holiday':''}}" title="{{day.name}}" data-bs-toggle="tooltip">{{day.d}}</td>
                             
                             {% endfor %} 
                         </tr>
@@ -62,7 +62,7 @@ xs,sm,m,lg,xl
 </div> 
 <style>
 .holiday {
-    border-radius:50% 50%;
+   box-shadow: rgb(210, 10, 10) 0px -4px 0px 0px inset;
 }
 </style>
 {% endblock %}
