@@ -50,7 +50,7 @@ xs,sm,m,lg,xl
                         <tr>
                             <th class="table-secondary">{{weekz.wn}}</th>
                             {% for day in weekz.week %}
-                            <td class="{{day.public?'holiday':''}}" title="{{day.name}}">{{day.d}}</td>
+                            <td class="{{day.public?'table-danger':''}}" title="{{day.name}}">{{day.d}}</td>
                             
                             {% endfor %} 
                         </tr>
@@ -63,9 +63,5 @@ xs,sm,m,lg,xl
         </div>     
     {% endfor %} 
 </div> 
-<style> 
-td.holiday {
-    color: red;
-}
-</style>
+
 {% endblock %}
