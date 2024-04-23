@@ -45,9 +45,9 @@ xs,sm,m,lg,xl
                         {% for weekz in month.weeks %}
                     {#{weekz | json_encode(constant('JSON_PRETTY_PRINT'))}#}
                         <tr>
-                            <th class="table-secondary">{{weekz.wn}}</th>
+                            <th class="table-secondary" style="font-weight: lighter;">{{weekz.wn}}</th>
                             {% for day in weekz.week %}
-                            <td class="{{day.public?'holiday':''}}" title="{{day.name}}" data-bs-toggle="tooltip">{{day.d}}</td>
+                            <td class="{{day.public?'holiday':''}} dow-{{day.dow_int}}" title="{{day.name}}" data-bs-toggle="tooltip">{{day.d}}</td>
                             
                             {% endfor %} 
                         </tr>
@@ -66,6 +66,9 @@ xs,sm,m,lg,xl
 }
 td:hover {
    background-color: lightgray;
+}
+td.dow-6 {
+    color:red;
 }
 </style>
 {% endblock %}
