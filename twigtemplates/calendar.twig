@@ -30,7 +30,7 @@ xs,sm,m,lg,xl
                     <table class="table table-borderless table-sm">
                     <thead>
                         <tr class="table-secondary text-muted". style="font-weight: lighter;">
-                            <td scope="col" title="Week number">W#</td>
+                            <td scope="col" title="Week number"></td>
                             <td scope="col" title="Monday">M</td>
                             <td scope="col" title="Tuesday">T</td>
                             <td scope="col" title="Wednesday">W</td>
@@ -45,7 +45,7 @@ xs,sm,m,lg,xl
                         {% for weekz in month.weeks %}
                     {#{weekz | json_encode(constant('JSON_PRETTY_PRINT'))}#}
                         <tr>
-                            <th class="table-secondary" style="font-weight: lighter;">{{weekz.wn}}</th>
+                            <th class="table-secondary" style="font-weight: lighter;">{{weekz.wn}}.</th>
                             {% for day in weekz.week %}
                             <td class="{{day.public?'holiday':''}} dow-{{day.dow_int}}" 
                             title="{% for holiday in day.days %}{{holiday.name}}<br>{% endfor %}" 
