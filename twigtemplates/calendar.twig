@@ -48,8 +48,8 @@ xs,sm,m,lg,xl
                             <th class="table-secondary" style="font-weight: lighter;">{{weekz.wn}}.</th>
                             {% for day in weekz.week %}
                             <td class="{{day.public?'holiday':''}} dow-{{day.dow_int}}" 
-                            title="<ul style='text-align: left !important;'>{% for holiday in day.days %}<li>{{holiday.name}}</li>{% endfor %}</ul>" 
-                            data-bs-toggle="tooltip" data-bs-html="true" >
+                            title="<ul>{% for holiday in day.days %}<li>{{holiday.name}}</li>{% endfor %}</ul>" 
+                            data-bs-toggle="tooltip" data-bs-html="true" data-bs-custom-class="tt-align-left" >
                                 {{day.d}}
                             </td>
                             
@@ -77,6 +77,9 @@ td {
 }
 td.dow-7 {
     color:red;
+}
+.tt-align-left{
+    text-align: left !important;
 }
 </style>
 {% endblock %}
