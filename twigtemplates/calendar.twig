@@ -2,6 +2,8 @@
 {% block content %}
 {% set code = _GET['1'] %}
 {% set year = _GET['2'] %}
+{% set url = "https://daysapi.com/api/v2/public_calendar_obs_v3?code={{code}}" %}
+url: {{url}}
 {% set months = fetch2("https://daysapi.com/api/v2/public_calendar_obs_v3?code={{code}}") %}
 
 {#
