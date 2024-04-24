@@ -47,7 +47,7 @@ xs,sm,m,lg,xl
                         <tr>
                             <th class="table-secondary" style="font-weight: lighter;">{{weekz.wn}}.</th>
                             {% for day in weekz.week %}
-                            <td class=" holiday-{{day.public}} dow-{{day.dow_int}}" 
+                            <td class="{% if day.public is not null %} holiday-{{day.public?'public':'notpublic'}} {%endif%}dow-{{day.dow_int}}" 
                             title="{% for holiday in day.days %}<div>{{holiday.name}}</div>{% endfor %}" 
                             data-bs-toggle="tooltip" data-bs-html="true" data-bs-custom-class="tt-align-left" >
                                 {{day.d}}
@@ -65,10 +65,10 @@ xs,sm,m,lg,xl
     {% endfor %} 
 </div> 
 <style>
-.holiday-1 {
+.holiday-public {
    box-shadow: rgb(210, 10, 10) 0px -4px 0px 0px inset !important;
 }
-.holiday-0 {
+.holiday-notpublic {
    box-shadow: rgb(110, 10, 10) 0px -4px 0px 0px inset !important;
 }
 td:hover {
