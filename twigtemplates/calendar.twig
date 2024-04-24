@@ -1,8 +1,9 @@
 {% extends "base-days.twig" %}
 {% block content %}
-{% set code = 'de' %}
-{% set months = fetch2("https://daysapi.com/api/v2/public_calendar_obs_v3" ) %}
-
+{% set code = _GET['1'] %}
+{% set year = _GET['2'] %}
+{% set months = fetch2("https://daysapi.com/api/v2/public_calendar_obs_v3?code=" ~ code|lower ) %}
+{{months}}
 {#
 m, weeks:[
   {
