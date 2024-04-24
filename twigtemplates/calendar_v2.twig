@@ -1,7 +1,7 @@
 {% extends "base-days.twig" %}
 {% block content %}
 {% set code = 'de' %}
-{% set months = fetch2("https://daysapi.com/api/v2/public_calendar_v3" ) %}
+{% set months = fetch2("https://daysapi.com/api/v2/public_calendar_v2" ) %}
 
 {#
 m, weeks:[
@@ -47,11 +47,7 @@ xs,sm,m,lg,xl
                         <tr>
                             <th class="table-secondary" style="font-weight: lighter;">{{weekz.wn}}</th>
                             {% for day in weekz.week %}
-                            <td class="{{day.public?'holiday':''}} dow-{{day.dow_int}}" 
-                            title="{% for holiday in day.days %}{{day.d}}{% endfor %}" 
-                            data-bs-toggle="tooltip">
-                                {{day.d}}
-                            </td>
+                            <td class="{{day.public?'holiday':''}} dow-{{day.dow_int}}" title="{{day.name}}" data-bs-toggle="tooltip">{{day.d}}</td>
                             
                             {% endfor %} 
                         </tr>
