@@ -2,7 +2,7 @@
 {% block content %}
 {% set code = _GET['1'] %}
 {% set year = _GET['2'] %}
-{% set months = fetch2("https://daysapi.com/api/v2/public_calendar_obs_v3?code=" ~ code ) %}
+{% set months = fetch2("https://daysapi.com/api/v2/public_calendar_obs_v3?code={{code}}") %}
 
 {#
 m, weeks:[
