@@ -1,29 +1,9 @@
 <head>
-  <script type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js">
-  </script>
+
 </head>
             
 <body>
-  <div id="player"></div>
-  <script>
-   //var player = new Clappr.Player({source: "https://orf-live.ors-shoutcast.at/fm4-q2a.m3u", parentId: "#player"});
-
-    var player3 = new Clappr.Player({
-        events: {
-                onStop:  function() { setTimeout(() => player3.play(), 0) },
-                onError:  function() { setTimeout(() => player3.play(), 0) },
-                onEnded:  function() { setTimeout(() => player3.play(), 0) }
-        },      
-        source: "https://orf-live.ors-shoutcast.at/fm4-q2a.m3u", 
-        width: 320,
-        height: 180,
-        autoPlay: true,
-        actualLiveTime: true,   
-        parentId: "#player"});
-    </script>
-
-<audio src="https://orf-live.ors-shoutcast.at/fm4-q2a.m3u" controls="controls">
+<audio src="https://orf-live.ors-shoutcast.at/fm4-q2a" controls="controls">
 not supported?
 </audio>
 </body>
