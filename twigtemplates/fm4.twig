@@ -6,5 +6,21 @@
 <audio src="https://orf-live.ors-shoutcast.at/fm4-q2a" controls="controls">
 not supported?
 </audio>
+<script>
+const audio = document.querySelector("audio");
+
+audio.audioTrackList.onaddtrack = (event) => {
+  console.log('onaddtrack', event.track);
+};
+
+video.addEventListener("stalled", (event) => {
+  console.log("stalled");
+});
+
+video.addEventListener("suspend", (event) => {
+  console.log("suspend");
+});
+
+</script>
 </body>
             
