@@ -13,11 +13,11 @@ audio.audioTrackList.onaddtrack = (event) => {
   console.log('onaddtrack', event.track);
 };
 
-video.addEventListener("stalled", (event) => {
+audio.addEventListener("stalled", (event) => {
   console.log("stalled");
 });
 
-video.addEventListener("suspend", (event) => {
+audio.addEventListener("suspend", (event) => {
   console.log("suspend");
 });
 
