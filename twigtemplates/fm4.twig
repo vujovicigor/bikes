@@ -4,13 +4,10 @@
   </script>
 </head>
             
-          
-PLUG
-            
 <body>
   <div id="player"></div>
   <script>
-   //var player = new Clappr.Player({source: "https://orf-live.ors-shoutcast.at/fm4-q2a", parentId: "#player"});
+   //var player = new Clappr.Player({source: "https://orf-live.ors-shoutcast.at/fm4-q2a.m3u", parentId: "#player"});
 
     var player3 = new Clappr.Player({
         events: {
@@ -18,7 +15,7 @@ PLUG
                 onError:  function() { setTimeout(() => player3.play(), 0) },
                 onEnded:  function() { setTimeout(() => player3.play(), 0) }
         },      
-        source: "https://orf-live.ors-shoutcast.at/fm4-q2a", 
+        source: "https://orf-live.ors-shoutcast.at/fm4-q2a.m3u", 
         width: 320,
         height: 180,
         autoPlay: true,
