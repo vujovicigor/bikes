@@ -4,15 +4,11 @@
             
 <body>
 <button onclick="location.reload()">Refresh</button>
-<audio src="https://orf-live.ors-shoutcast.at/fm4-q2a" controls="controls" autoplay>
+<video src="https://orf-live.ors-shoutcast.at/fm4-q2a" controls="controls" autoplay>
 not supported?
-</audio>
+</video>
 <script>
 const audio = document.querySelector("audio");
-
-audio.audioTrackList.onaddtrack = (event) => {
-  console.log('onaddtrack', event.track);
-};
 
 audio.addEventListener("stalled", (event) => {
   console.log("stalled");
